@@ -22,7 +22,7 @@ public class TransacaoControllerTests {
 
     private final String EXCEPTION_REASON_CAMPOS_OBRIGATORIOS = "Ambos os campos do DTO são obrigatórios.";
     private final String EXCEPTION_REASON_CAMPO_VALOR = "O valor deve ser igual ou maior a zero";
-    private final String EXCEPTION_REACON_CAMPO_DATAHORA = "A dataHora deve estar no futuro.";
+    private final String EXCEPTION_REACON_CAMPO_DATAHORA = "A dataHora deve estar no passado.";
 
     @Mock
     private TransacaoService transacaoService;
@@ -44,7 +44,7 @@ public class TransacaoControllerTests {
     void deveLancarExcecaoQuandoTransacaoDTONulo() {
         Executable action = () -> transacaoController.receberTransacao(null);
         ApiErroException ex = assertThrows(ApiErroException.class, action);
-        assertEquals(HttpStatus.UNPROCESSABLE_ENTITY, ex.getHttpStatus());
+        assertEquals(HttpStatus.BAD_REQUEST, ex.getHttpStatus());
         assertEquals(EXCEPTION_REASON_CAMPOS_OBRIGATORIOS, ex.getReason());
     }
 
