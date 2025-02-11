@@ -14,4 +14,8 @@ public class TransacaoService {
     public void receberTransacao(TransacaoDTO transacaoDTO) {
         listaTransacoes.add(transacaoDTO);
     }
+
+    public void limparTransacoes() {
+        listaTransacoes.clear();
+    }
 }

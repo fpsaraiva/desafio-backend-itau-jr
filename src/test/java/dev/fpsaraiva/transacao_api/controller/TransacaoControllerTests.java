@@ -14,10 +14,8 @@ import org.springframework.http.ResponseEntity;
 
 import java.time.OffsetDateTime;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class TransacaoControllerTests {
@@ -88,5 +86,17 @@ public class TransacaoControllerTests {
 
         ApiErroException ex = assertThrows(ApiErroException.class, action);
         assertEquals(EXCEPTION_REACON_CAMPO_DATAHORA, ex.getReason());
+    }
+
+    @Test
+    void deveDeletarTransacoesComSucesso() {
+        doNothing().when(transacaoService).limparTransacoes();
+
+        ResponseEntity<Void> response = transacaoController.deletarTransacoes();
+
+        verify(transacaoService, times(1)).limparTransacoes();
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNotNull(response);
     }
 }
