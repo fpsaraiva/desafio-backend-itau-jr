@@ -2,7 +2,8 @@
 
 Solução do [desafio técnico](https://github.com/rafaellins-itau/desafio-itau-vaga-99-junior) para dev Jr. do Itaú. 
 
-A ideia e referência para a resolução deste desafio veio [deste vídeo](https://www.youtube.com/watch?v=9xrx1pxZEGU) do canal Javanauta.
+A ideia e referência para a resolução deste desafio veio destes vídeos ([parte 1](https://www.youtube.com/watch?v=9xrx1pxZEGU) 
+e [parte 2](https://www.youtube.com/watch?v=jEUdgT-qpKo)) do canal Javanauta.
 
 ## Stack utilizada
 
@@ -43,5 +44,4 @@ Comando (no terminal também) para finalizar a aplicação: Ctrl + C
 
 ## Faltou fazer (não foi implementando)
 
-* Containerização: configurar aplicação para ser disponibilizada como um container.
 * Performance: estimar tempo gasto pela aplicação para cálculo de estatísticas.
